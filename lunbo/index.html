@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.1.0.js" ></script>
+		<style>
+		
+		.slide {
+			width: 1000px;
+			height: 409px;
+			margin: 0 auto;
+			position: relative;
+		}
+		.navbtn div {
+			position: absolute;
+			width: 45px;
+			height: 45px;
+			top: 45%;
+		}
+		.slide .previous {
+			background-image: url(img/l.png);
+			left: -60px;
+		}
+		.slide .next {
+			background-image: url(img/r.png);
+			right: -60px;
+		}
+		.pictures img {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			/*transition: transform 1s;*/
+			
+			transform-origin: bottom;
+			transform: rotateX(-180deg); 
+			opacity: 0;
+		}
+		.pictures {
+			transform-style: preserve-3d;
+			perspective: 600px;
+		}
+		.pictures img:nth-child(1) {
+			
+		}
+		
+		.slide .pictures .active {
+			transform: rotateX(0deg);
+			opacity: 1;
+		}
+		.turn-down {
+			animation: turn-down 0.5s forwards;
+		}
+		.turn-up {
+			animation: turn-up 1s forwards;
+		}
+
+		@keyframes turn-down{
+			0%{ 
+				transform: rotateX(0deg); 
+				opacity: 1;
+			}
+			100%{ 
+				transform: rotateX(-180deg); 
+				opacity: 0;
+			}
+		}
+		
+		@keyframes turn-up{
+			0%{ transform: rotateX(180deg); opacity: 0; }
+			40%{ transform: rotateX(-30deg); opacity: 1; }
+			60%{ transform: rotateX(30deg); opacity: 1; }
+			80%{ transform: rotateX(-20deg); opacity: 1; }
+			90%{ transform: rotateX(20deg); opacity: 1; }
+			100%{ transform: rotateX(0deg); opacity: 1; }
+		}
+		</style>
+		<script>
+		$(function(){
+			var imgs = $(".slide .pictures img");
+			var page = 2;
+			
+			$(".slide .navbtn .previous").click(function(){
+//				if (page == 0)
+//					return;
+				
+				imgs.eq(page).removeClass("turn-up").addClass("turn-down");
+				page--;
+				if (page < 0)
+					page = 5;
+				imgs.eq(page).removeClass("turn-down").addClass("turn-up");
+				
+			});
+			
+			$(".slide .navbtn .next").click(function(){
+//				if (page == 5) 
+//					return;
+					
+				imgs.eq(page).removeClass("turn-up").addClass("turn-down");
+				page++;
+				if (page > 5)
+					page = 0;
+				imgs.eq(page).removeClass("turn-down").addClass("turn-up");
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<div class="slide">
+			<div class="pictures">
+				<img src="img/1.jpg"/>
+				<img src="img/2.jpg"/>
+				<img src="img/3.jpg" class="active"/>
+				<img src="img/4.jpg"/>
+				<img src="img/5.jpg"/>
+				<img src="img/6.jpg"/>
+			</div>
+			<div class="navbtn">
+				<div class="previous"></div>
+				<div class="next"></div>				
+			</div>
+		</div>
+	</body>
+</html>

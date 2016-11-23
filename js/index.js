@@ -1,101 +1,117 @@
-/**
- * Created by lili on 2016/10/9 0009.
- */
-window.onload = function () {
-    var check = document.getElementById("check");
-    var cityList = document.getElementById("cityList");
-    var oLi = document.getElementsByTagName("li");
-    var oBox=document.getElementById('jau');
-    var big = document.getElementById('big');
-    var cont = document.getElementById('cont');
-    var scroller=document.getElementsByClassName('scroll')[0];
-    var timer = null;
-    check.innerHTML=oLi[0].innerHTML;
-    check.onclick = function (e) {
-        e.cancelBubble=true;
-        oLi[0].style.display="none";
-        oBox.style.display = "block";
-        tool.scroll(oBox,cityList,scroller);
-        //拖拽滚动条
-        for (var i = 0; i < oLi.length; i++) {
-            oLi[i].onmouseover = function () {
-                for (var k = 0; k < oLi.length; k++) {
-                    oLi[k].className = "";
-                }
-                this.className = "activties";
-            };
-            oLi[i].onclick = function () {
-                check.innerHTML = this.innerHTML;
-                oBox.style.display = "none";
-                return check.innerHTML;
-            }
-        }
-        check.onmouseout = function () {
-            oBox.style.display = "none";
-        }
-    };
-    oBox.onmouseenter = function () {
-        this.style.display = "block";
-    };
-    oBox.onmouseleave = function () {
-        this.style.display = "none";
-    };
-    document.getElementById("btn").onclick = function () {
-        var city = check.innerHTML;
-        if(city=="请选择"){
-            alert("请选择您想查询的城市");
-            return false;
-        }
-        var big = document.getElementById('big');
-        var n = 0;
-        document.getElementById('actor').style.display = "none";
-        document.getElementById('cont').innerHTML = "";
-        document.getElementById('op').innerHTML = "";
-        var content = "";
-        document.getElementById('ac').style.display = "block";
-        var url = "http://wthrcdn.etouch.cn/weather_mini?city=" + city;
-        $.getJSON(url, function (jsArr) {
-            clearInterval(timer);
-            big.style.width = 133 + "px";
-            document.getElementById('actor').style.display = "block";
-            document.getElementById('ac').style.display = "";
-            content += "<h3>" + city + "天气预报<h3/>";
-            content += "<div style='width:2000px'>"
-            content += "<ul>";
-            content += "<li>" + jsArr.data.yesterday.date + "</li>";
-            var icon1 = weather.parseIcon(jsArr.data.yesterday.type);
-            content += "<li>" + jsArr.data.yesterday.type + "</li>";
-            content += "<li><img src='images/" + icon1 + "'></li>";
-            content += "<li>" + jsArr.data.yesterday.fl + "</li>";
-            content += "<li>" + jsArr.data.yesterday.fx + "</li>";
-            content += "<li>" + jsArr.data.yesterday.high + "</li>";
-            content += "<li>" + jsArr.data.yesterday.low + "</li>";
-            content += "</ul>";
-            for (var i = 0; i < jsArr.data.forecast.length; i++) {
-                var jsObj = jsArr.data.forecast[i];
-                content += "<ul>";
-                content += "<li>" + jsObj.date + "</li>";
-                var icon = weather.parseIcon(jsObj.type);
-                content += "<li>" + jsObj.type + "</li>"
-                content += "<li><img src='images/" + icon + "'></li>";
-                content += "<li>" + jsObj.fengxiang + "</li>";
-                content += "<li>" + jsObj.fengli + "</li>";
-                content += "<li>" + jsObj.high + "</li>";
-                content += "<li>" + jsObj.low + "</li>";
-                content += "</ul>";
 
-            }
-            content+="</div>"
-            document.getElementById('op').innerHTML = "<p>" + jsArr.data.ganmao + "</p>";
-            document.getElementById('cont').innerHTML = content;
-            document.getElementById('actor').style.display = "block";
-            timer = setInterval(function () {
-                n += 20;
-                if (n > 978) {
-                    n = 978
-                }
-                big.style.width = n + "px";
-            }, 30)
-        })
-    }
-}
+$(document).ready(function () {
+
+    $('.nav_list').hover(function () {
+    }, function () {
+
+    });
+    $('.nav_btn').hover(function () {
+        $('.nav_list>ul').stop().animate({left: "0"})
+    }, function () {
+        $('.nav_list>ul').stop().animate({left: "400px"})
+    });
+
+
+    $('.grid').kxbdSuperMarquee({
+        distance: 288,
+        time: 3,
+        btnGo: {left: '#goL', right: '#goR'},
+        direction: 'left'
+    });
+
+
+    $('.tab1_1').hide();
+    $($('.tab>ul>li>a').attr('title')).show();
+    $('.tab>ul>li').click(function () {
+        $('.tab1_1').hide();
+        $($(this).children('a').attr('title')).fadeIn();
+        $('.tabs>li>a').removeClass();
+        $(this).children('a').addClass('picth');
+        return false;
+    });
+
+    $('.img1').click(function () {
+        $('.img1').attr('src', 'images/di_1.png');
+        $(this).attr('src', 'images/di_3.png');
+
+
+        $('.concent').css('display', 'block');
+        return false;
+    });
+
+    $('.img1').hover(function () {
+        $('.concent').css('background', 'url(images/zifg.png) no-repeat')
+    }, function () {
+        $('.concent').css('background', '')
+    })
+
+
+    $('.img2').click(function () {
+        $('.img2').attr('src', 'images/di_1.png');
+        $(this).attr('src', 'images/di_4.png');
+
+
+        $('.concent2').css('display', 'block');
+        return false;
+    });
+    $('.img2').hover(function () {
+        $('.concent2').css('background', 'url(images/zifg.png)')
+    }, function () {
+        $('.concent2').css('background', '')
+    });
+
+
+    $('.img3').click(function () {
+        $('.img3').attr('src', 'images/di_1.png');
+        $(this).attr('src', 'images/di_5.png');
+
+
+        $('.concent3').css('display', 'block');
+        return false;
+    });
+    $('.img3').hover(function () {
+        $('.concent3').css('background', 'url(images/zifg.png)')
+    }, function () {
+        $('.concent3').css('background', '')
+    });
+
+
+    $('.img4').click(function () {
+        $('.img4').attr('src', 'images/di_1.png');
+        $(this).attr('src', 'images/di_6.png');
+
+
+        $('.concent4').css('display', 'block');
+        return false;
+    });
+
+
+    $('.img4').hover(function () {
+        $('.concent4').css('background', 'url(images/zifg.png)')
+    }, function () {
+        $('.concent4').css('background', '')
+    })
+
+    $('.img5').click(function () {
+        $('.img5').attr('src', 'images/di_1.png');
+        $(this).attr('src', 'images/di_7.png');
+
+
+        $('.concent5').css('display', 'block');
+        return false;
+
+    });
+
+    $('.img5').hover(function () {
+        $('.concent5').css('background', 'url(images/zifg.png)')
+    }, function () {
+        $('.concent5').css('background', '')
+    });
+
+    $('.lg').hover(function () {
+        $('.lg').attr('src', 'images/logo1.png')
+    }, function () {
+        $('.lg').attr('src', 'images/logo.png')
+    })
+
+});

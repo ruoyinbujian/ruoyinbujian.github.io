@@ -1,55 +1,255 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <script src="js/scroll.js"></script>
-    <link href="css/button.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <title>wellcom to my website</title>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/kxbdSuperMarquee.js"></script>
+    <script type="text/javascript" src="js/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
     <link href="css/index.css" rel="stylesheet" type="text/css">
-    <script src="js/ajax.js"></script>
-    <script src="js/index.js"></script>
 </head>
 <body>
-<div id="box">
-    <div id="ospan">
-        <div id="check">
+<nav>
+    <div class="inner">
+        <div class="logo">l c h</div>
+        <div class="nav_btn">
+            <div class="nav_list">
+                <ul>
+                    <li>
+                        <p><a href="#main1_mao">作品</a></p>
+                    </li>
+                    <li>
+                        <p><a href="#skil">技能</a></p>
+                    </li>
+                    <li>
+                        <p><a href="#about">关于</a></p>
+                    </li>
+                    <li>
+                        <p><a href="#contance">联系</a></p>
+                    </li>
+                </ul>
+            </div>
+            <img src="images/heng.png" class="btn">
         </div>
-        <span>&or;</span>
     </div>
-    <button type="button" id="btn">查询天气</button>
-    <div class="clear"></div>
-    <div id="jau">
-        <ul id="cityList">
-            <li>请选择</li>
-            <li>北京</li>
-            <li>上海</li>
-            <li>广州</li>
-            <li>深圳</li>
-            <li>青岛</li>
-            <li>武汉</li>
-            <li>西安</li>
-            <li>济南</li>
-            <li>郑州</li>
-            <li>沈阳</li>
-            <li>长春</li>
-            <li>西宁</li>
-            <li>兰州</li>
-            <li>南昌</li>
-            <li>南京</li>
-            <li>杭州</li>
-            <li>合肥</li>
+</nav>
+
+<!--第一页面-->
+<header>
+    <div class="inner">
+        <h3>WEB前端工程师</h3>
+        <ul>
+            <li>李 超</li>
+            <li>Tel：15527336002</li>
+            <li>Email：whut_lch@163.com</li>
         </ul>
-        <div class="scroll"></div>
+        <div class="chuan"><img src="images/xiaochuan.png"/></div>
+        <div class="xsj"><a href="#main1_mao"><img src="images/jt.png"></a></div>
     </div>
-    <div class="active" id="ac"><img src="images/loader.gif"></div>
-    <div id="big">
-        <div id="cont">
+    <div class="bowen"><img src="images/bb.png"/></div>
+</header>
+<div id="main">
+    <div class="main_inner">
+
+        <div class="main1">
+            <div class="main_top"><a name="main1_mao"><img src="images/work.png"></a></div>
+            <div class="xsj2"><a href="#skil"><img src="images/jt.png"></a></div>
+
+            <div class="main_bottom">
+                <div class="tab">
+                    <ul class="tabs">
+                        <li id="check1" class="check"><a href="#" class="picth" title="#jiemian">Web作品</a></li>
+                        <li id="check2"><a href="#" title="#tubiao">移动端作品</a></li>
+                    </ul>
+                    <div class="cont">
+                        <a href="javascript:void(0);" id="goL" class="gotoLeft"></a>
+                        <a href="javascript:void(0);" id="goR" class="gotoRight"></a>
+                        <div class="tab1_1" id="jiemian">
+                            <div class="grid">
+                                <ul>
+                                    <li>
+                                        <div class="effect-apollo"><img src="texiao/images/texiao1.jpg" alt="img18">
+                                            <figcaption>
+                                                <p>html5+css3</p>
+                                                <a href="texiao/index.html" target="_blank">View more</a></figcaption>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="effect-apollo"><img src="weather/images/weather.jpg" alt="img18">
+                                            <figcaption>
+                                                <p>weather report</p>
+                                                <a href="weather/index.html" target="_blank">View more</a></figcaption>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="effect-apollo"><img src="pictures/img/pictures.jpg" alt="img18">
+                                            <figcaption>
+                                                <p>图片展示效果</p>
+                                                <a href="pictures/index.html" target="_blank">View more</a></figcaption>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="effect-apollo"><img src="tour/images/tour.jpg" alt="img18">
+                                            <figcaption>
+                                                <p>tour</p>
+                                                <a href="tour/index.html" target="_blank">View more</a></figcaption>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="effect-apollo"><img src="lunbo/img/lunbo.jpg" alt="img18">
+                                            <figcaption>
+                                                <p>轮播图3d</p>
+                                                <a href="lunbo/index.html" target="_blank">View more</a></figcaption>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="effect-apollo"><img src="images/fanke.png" alt="img18">
+                                            <figcaption>
+                                                <p>响应式页面</p>
+                                                <a href="fanke/index.html" target="_blank">View more</a></figcaption>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab1_1" id="tubiao">
+                            <div class="grid">
+                                <ul>
+                                    <li>
+                                        <div class="effect-apollo"><img src="images/ionic.jpg" alt="img18">
+                                            <figcaption>
+                                                <p>食客</p>
+                                                <a href="myapp/index.html" target="_blank">View more</a></figcaption>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="effect-apollo"><img src="images/shidaimeishi.jpg" alt="img18">
+                                            <figcaption>
+                                                <p>时代美食</p>
+                                                <p>扫描二维码</p>
+                                            </figcaption>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="effect-apollo"><img src="images/haodou.jpg" alt="img18">
+                                            <figcaption>
+                                                <p>好逗菜谱</p>
+                                                <p>扫描二维码</p>
+                                            </figcaption>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-    <div id="actor">
-        <h5>温馨提示:<i><img src="images/xiao.jpg"></i></h5>
-        <div id="op"></div>
+    <!--第二页面-->
+
+    <!--第三页面-->
+    <div class="main2">
+        <div class="main2_inner">
+            <div class="main2_top"><a name="skil"><img src="images/Skil.png"/></a></div>
+            <div class="xsj1"><a href="#about"><img src="images/jt.png"></a></div>
+            <ul>
+                <li class="ps"></li>
+                <li class="ae"></li>
+                <li class="dw"></li>
+                <li class="ai"></li>
+                <li class="maya" id="my"></li>
+                <li class="nuke"></li>
+                <li class="pr"></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+    </div>
+
+    <!--第三页面-->
+
+    <!--第四页面-->
+    <div class="main3">
+        <div class="main3_inner">
+            <div class="main3_top"><a name="about"><img src="images/about me.png"/></a></div>
+            <div class="xsj2"><a href="#contact"><img src="images/jt.png"></a></div>
+            <div class="about_bot">
+                <div class="photo"><img src="images/mine.jpg"/></div>
+                <div class="about_r">
+                    <div class="years">
+                        <ul>
+                            <li><a href="#"><img src="images/di_1.png" class="img1"></a>
+                                <div class="concent">
+                                    <p class="second1">毕业于武汉理工大学·211本科<br/></p>
+                                </div>
+                            </li>
+
+                            <li><a href="#"><img src="images/di_1.png" class="img2"></a>
+                                <div class="concent2">
+                                    <p class="second2">在武汉普林光通科技有限公司实习，有了对web前端职业<br/>
+                                        的更深刻认识，也让自己更加坚定地为成为一个杰出的<br/>
+                                        web前端工程师努力。
+                                    </p>
+                                </div>
+                            </li>
+                            <li><a href="#"><img src="images/di_1.png" class="img3"></a>
+                                <div class="concent3">
+                                    <p class="second3">加入深圳蛇口集装箱码头有限公司，任web前端工程师，
+                                        <br/>主要负责iport信息平台首页、网站公告、联系我们等模块<br/>的开发与维护工作。
+                                </div>
+                            </li>
+                            <li><a href="#"><img src="images/di_1.png" class="img4"></a>
+                                <div class="concent4">
+                                    <p class="second4">运用angularJS+ionic移动端框架，完成“时代美食”轻应用,<br/>具备移动端app的功能及作用，完善用户体验，并获优秀<br/>毕业设计奖。
+                                    </p>
+                                </div>
+                            </li>
+                            <li><a href="#"><img src="images/di_1.png" class="img5"></a>
+                                <div class="concent5">
+                                    <p class="second5">Hope I can join in your company.an extraordinary team.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="main4">
+        <div class="main4_inner">
+            <div class="main4_top"><a name="contance"><img src="images/contance.png"/></a></div>
+            <a name="contact"></a>
+            <div id="contact">
+                <div class="inner">
+                    <div class="weixin">
+                        <p class="thanks">Thanks for watching, like my work, please contact me. </p>
+                        <ul>
+                            <li><a href="#contact">826540167</a></li>
+                            <li><a href="#contact">whut_lch@163.com</a></li>
+                            <li><a href="#contact">ZCH-ONY</a></li>
+                            <li><a href="#contact">15527336002</a></li>
+                        </ul>
+                        <h2 class="leave">LEAVE ME A MESSAGE</h2>
+                    </div>
+                    <div class="form">
+                        <form>
+                            <input type="text" value="Your Name" class="text">
+                            <input type="text" value="Your E-mail" class="text1">
+                            <p></p>
+                            <textarea name="textarea" value="Your E-mail">Message</textarea>
+                            <input type="submit" value="SEND" class="send">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="shuimu">
+                <img src="images/shuimu.png" class="xiaoshuimu">
+                <p><a href="#" class="youhui">游回顶部</a></p>
+            </div>
+        </div>
     </div>
 </div>
 </body>
